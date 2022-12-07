@@ -6,5 +6,9 @@
   },
   "scripts": {
     "prettier": "prettier --write ."
+  },
+  "dependencies": {
+    "@rmrk-team/evm-contracts": "^0.19.4",
+    "prettier": "^2.8.0"
   }
 }
