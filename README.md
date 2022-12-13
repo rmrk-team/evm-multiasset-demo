@@ -29,7 +29,7 @@ After the travel started Master and Alice decided to separate and they taken 2 d
         { value: pricePerMint } // price per token
     );
 ```
-## recipes creation - Creation of assets to add to the collection tokens
+## Recipes creation - Creation of assets to add to the collection tokens
 
 During his stay Master studied a lot and after getting the inspiration  he **gave life** to 3 raw recipes.
 
@@ -59,20 +59,19 @@ console.log("Add recipes to Master's book");
             MASTER_BOOK_ID, // ID of the token that will receive the asset
             recipe_ID,     // ID of the asset to add
             0               // ID of the asset to replace with the new one. 0 == none
-        );console.log("Add recipes to Master's book");
-    for (let i = 0; i < INITIAL_recipeS; i++) {
-        const recipe_ID = actual_recipe_id;
-        actual_recipe_id++;    // Update to the next ID
-        await cookBookInstance.addAssetToToken(
-            MASTER_BOOK_ID, // ID of the token that will receive the asset
-            recipe_ID,     // ID of the asset to add
-            0               // ID of the asset to replace with the new one. 0 == none
-        );                  // direct addition since the adder is the owner
-    }
+        );                // direct addition since the adder is the owner
     }
 ```
 
-Also Alice crafted her cookbook, but she did it in Argentina.
+Alice also wanted to craft her cookbook, but create recognized recipes is not allowed to everyone, is something exclusive, so she asked to Master to give her the permission to contribute to this huge project and he said **YES** :boom:
+
+```typescript
+console.log("Adding Alice as a new contributor for the collection");
+    await cookBookInstance.connect(MASTER).addContributor(ALICE.address);
+
+```
+
+After getting the permission Alice crafted her book, but she did it in Argentina.
 
 ```typescript
 // Alice mint her cookbook
@@ -118,7 +117,7 @@ During his travel Master created a recipe dedicated to his student and he decide
         );
 ```
 
-Alice **accepted** suddently the recipe gifted from her master...
+Alice **accepted** the recipe gifted from her master...
 
 ```Typescript
 await cookBookInstance.connect(ALICE).
@@ -193,6 +192,8 @@ After a small review Alice added them to her book. :book:
 After this final collaboration with Alice Master decided to retire, he was an old man and he was also a little tired of travelling the world. This final decision took him to burn his cookbook. :fire:
 He wanted to leave only a nice memory of him, and a veil of mystery around his cooking figure :wave:
 
+Fortunately Master's recipes will be available for the next generations, but without the permission of Alice, his loyal student, none will be able to add the recipes into future cookbooks.
+
 ```Typescript
 await cookBookInstance.connect(MASTER).
         burn(MASTER_BOOK_ID // ID of the token to burn
@@ -204,13 +205,14 @@ await cookBookInstance.connect(MASTER).
 In this tutorial we have seen how to interact with the Multi-Asset implementation in order to:
 
 1. :point_right: **Create a collection** with tokens that support this standard
-2. :point_right: **Create assets** (resources) that can be added to a token
+2. :point_right: **Create and add assets** (resources) to a token
 3. :point_right: **Replace** an active asset with another one
 4. :point_right: **Burn** a token with all its assets binded
 
 ## Development notes :warning:
 
-In this implementation the assets cannot be unbinded from a token. Once I add the asset with ID 5 to the token with ID 1 there is no way to remove the asset so keep attention while accepting new asset from unknown origins.
+- When you add a new entry to the collection you are created a new asset (resource) that can be used added to the collection tokens, but this asset is not *unique* so it can be added to each different token.
+- In this implementation the assets cannot be unbinded from a token. Once you add the asset with ID 5 to the token with ID 1 there is no way to remove the asset so keep attention while accepting new asset from unknown origins.
 On the other hand an asset can be "*deleted*" by replacing it with a new one, but the number of active assets will remain the same.
 
 ## Bugs, doubts and help :pray:
