@@ -5,16 +5,13 @@ import "@rmrk-team/evm-contracts/contracts/implementations/RMRKMultiAssetImpl.so
 
 contract CookBook is RMRKMultiAssetImpl {
     
-    constructor(uint256 maxSupply, uint256 pricePerMint)
+    constructor(InitData memory data)
         RMRKMultiAssetImpl(
             "Cookbook",
             "COBO",
-            maxSupply,
-            pricePerMint,
             "ipfs://metadata",
             "ipfs://tokenMetadata",
-            msg.sender,
-            100
+            data
         )
     {}
 }

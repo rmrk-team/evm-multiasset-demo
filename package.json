@@ -8,7 +8,7 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
-    "@rmrk-team/evm-contracts": "^0.19.4",
+    "@rmrk-team/evm-contracts": "^0.20.0",
     "prettier": "^2.8.0"
   }
 }
