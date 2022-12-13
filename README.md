@@ -64,9 +64,10 @@ console.log("Add recipes to Master's book");
 ```
 
 Alice also wanted to craft her cookbook, but create recognized recipes is not allowed to everyone, is something exclusive, so she asked to Master to give her the permission to contribute to this huge project and he said **YES** :boom:
+Adding Alice as a new contributor for the collection she can now insert in her cookbook existing recipes made by her or her master.
 
 ```typescript
-console.log("Adding Alice as a new contributor for the collection");
+console.log("Adding Alice as a new contributor for the collection.");
     await cookBookInstance.connect(MASTER).addContributor(ALICE.address);
 
 ```
