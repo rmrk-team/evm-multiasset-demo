@@ -20,7 +20,7 @@ async function main() {
             tokenUriIsEnumerable: true,
             royaltyRecipient: ethers.constants.AddressZero,
             royaltyPercentageBps: 0,    // the address is 0x0 so it is better to put 0 until a change
-            maxSupply: 2,
+            maxSupply: totalTokens,
             pricePerMint: pricePerMint
         }
     );
@@ -39,13 +39,13 @@ async function main() {
     const ALICE_BOOK_ID = 2;
     let actual_recipe_id = 1;
 
-    const INITIAL_recipeS = 3;
+    const INITIAL_RECIPES = 3;
 
     console.log("Create recipes for Master's book");
     let allAddingTxs = [];
-    for (let i = 0; i < INITIAL_recipeS; i++) {
+    for (let i = 0; i < INITIAL_RECIPES; i++) {
         allAddingTxs.push(
-            await cookBookInstance.addAssetEntry(   // add a new asset to the collection (not binded to any token)
+            await cookBookInstance.addAssetEntry(   // adds a new asset to the collection (not bound to any token)
                 `ipsf://metadata/master_recipe_${i + actual_recipe_id}`,  // metadata URI of the asset
             ),
         );
@@ -53,18 +53,18 @@ async function main() {
     await Promise.all(allAddingTxs.map((addingTx) => addingTx.wait()));
 
     console.log("Add recipes to Master's book");
-    for (let i = 0; i < INITIAL_recipeS; i++) {
+    for (let i = 0; i < INITIAL_RECIPES; i++) {
         const recipe_ID = actual_recipe_id;
         actual_recipe_id++;    // Update to the next ID
         await cookBookInstance.addAssetToToken(
             MASTER_BOOK_ID, // ID of the token that will receive the asset
-            recipe_ID,     // ID of the asset to add
-            0               // ID of the asset to replace with the new one. 0 == none
+            recipe_ID,      // ID of the asset to add
+            0               // ID of the asset to replace with the new one, 0 means none
         );
     }
 
     console.log(
-        "Added %d recipes to the %s Master's book", INITIAL_recipeS,   // amount of recipes to add
+        "Added %d recipes to the %s Master's book", INITIAL_RECIPES,   // amount of recipes to add
         await cookBookInstance.name(),  // name of the NFT collection
     );
     let activeMasterBookRecipes = await cookBookInstance.getActiveAssets(MASTER_BOOK_ID);
@@ -73,20 +73,20 @@ async function main() {
     console.log("Adding Alice as a new contributor for the collection");
     await cookBookInstance.connect(MASTER).addContributor(ALICE.address);
 
-    // Alice mint her cookbook
+    // Alice mints her cookbook
     await cookBookInstance.connect(ALICE).mint(
         ALICE.address,          // address that will receive the token
         1,                      // amount of tokens to mint
         { value: pricePerMint } // price per token
     );
 
-    const INITIAL_ALICE_recipeS = 2;
-    for (let i = 0; i < INITIAL_ALICE_recipeS; i++) {
+    const INITIAL_ALICE_RECIPES = 2;
+    for (let i = 0; i < INITIAL_ALICE_RECIPES; i++) {
         const recipe_ID = actual_recipe_id;
         actual_recipe_id++;     // Update to the next ID
         await cookBookInstance
             .connect(ALICE)
-            .addAssetEntry(     // add a new asset to the collection (not binded to any token)
+            .addAssetEntry(     // adds a new asset to the collection (not bound to any token)
                 `ipsf://metadata/alice_recipe_${recipe_ID}`     // metadata URI of the asset
             );
         await cookBookInstance.
@@ -94,7 +94,7 @@ async function main() {
             addAssetToToken(
                 ALICE_BOOK_ID,  // ID of the token that will receive the asset
                 recipe_ID,      // ID of the asset to add
-                0               // ID of the asset to replace with the new one. 0 == none
+                0               // ID of the asset to replace with the new one, 0 means none
             );
     }
 
@@ -104,7 +104,7 @@ async function main() {
     // Master creates a new recipe and send it to Alice cookbook
     await cookBookInstance
         .connect(MASTER)
-        .addAssetEntry(     // add a new asset to the collection (not binded to any token)
+        .addAssetEntry(     // adds a new asset to the collection (not bound to any token)
             `ipsf://metadata/master_recipe_${actual_recipe_id}`   // metadata URI of the asset
         );
     await cookBookInstance
@@ -112,7 +112,7 @@ async function main() {
         addAssetToToken(
             ALICE_BOOK_ID,      // ID of the token that will receive the asset
             actual_recipe_id,   // ID of the asset to add
-            0                   // ID of the asset to replace with the new one. 0 == none
+            0                   // ID of the asset to replace with the new one, 0 means none
         );
     actual_recipe_id++;    // Update to the next ID
 
@@ -133,10 +133,10 @@ async function main() {
         await cookBookInstance.getActiveAssets(ALICE_BOOK_ID),
     );
 
-    // Alice creates a recipe and replace the latest added with it
+    // Alice creates a recipe and replaces the latest added with it
     await cookBookInstance
         .connect(ALICE)
-        .addAssetEntry(     // add a new asset to the collection (not binded to any token)
+        .addAssetEntry(     // adds a new asset to the collection (not bound to any token)
             `ipsf://metadata/alice_recipe_${actual_recipe_id}`    // metadata URI of the asset
         );
 
@@ -153,21 +153,21 @@ async function main() {
     actual_recipe_id++;    // Update to the next ID
 
     console.log(
-        'Alice cookbook recipes recipes after replacement: %s',
+        'Alice cookbook recipes after the replacement: %s',
         await cookBookInstance.getActiveAssets(ALICE_BOOK_ID),
     );
 
-    // Master creates 2 recipes and add them to Alice cookbook
+    // Master creates 2 recipes and adds them to Alice cookbook
     for (let i = 0; i < 2; i++) {
         await cookBookInstance
             .connect(MASTER)
-            .addAssetEntry(     // add a new asset to the collection (not binded to any token)
+            .addAssetEntry(     // adds a new asset to the collection (not bound to any token)
                 `ipsf://metadata/master_recipe_${actual_recipe_id}`   // metadata URI of the asset
             );
         await cookBookInstance.addAssetToToken(
             ALICE_BOOK_ID,      // ID of the token that will receive the asset
-            actual_recipe_id,  // ID of the asset to add
-            0                   // ID of the asset to replace with the new one. 0 == none
+            actual_recipe_id,   // ID of the asset to add
+            0                   // ID of the asset to replace with the new one, 0 means none
         );
         actual_recipe_id++;
     }
@@ -180,20 +180,10 @@ async function main() {
             .acceptAsset(           // accept pending asset
                 ALICE_BOOK_ID,      // ID of the token that will receive the asset
                 0,                  // Index of the asset in the pending array
-                CURRENT_recipe_ID  // ID of the asset to add
+                CURRENT_recipe_ID   // ID of the asset to add
             );
         acceptTx.wait();
     }
-
-    // TEST TEST TEST
-    await cookBookInstance.connect(ALICE)
-        .addAssetToToken(ALICE_BOOK_ID, 1, 0);
-
-    console.log(await cookBookInstance.getActiveAssets(ALICE_BOOK_ID));
-
-    //await cookBookInstance.connect(MASTER).addContributor(ALICE.address);
-
-    // END TEST
 
     console.log(
         'Alice cookbook after accepting the new recipes: %s',
@@ -201,13 +191,13 @@ async function main() {
     );
 
     // Master burns his cookbook
-
     console.log(
         'Master is going to burn his cookbook with %d recipes!',
         (await cookBookInstance.getActiveAssets(MASTER_BOOK_ID)).length,
     );
     await cookBookInstance.connect(MASTER).
-        burn(MASTER_BOOK_ID // ID of the token to burn
+        burn(
+            MASTER_BOOK_ID // ID of the token to burn
         );
     console.log(
         'Burned...\nCookbooks owned by MASTER: %d',
