@@ -101,7 +101,7 @@ async function main() {
     const activePages = await cookBookInstance.getActiveAssets(ALICE_BOOK_ID);
     console.log('Active recipes to %d book %s', ALICE_BOOK_ID, activePages);
 
-    // Master creates a new recipe and send it to Alice cookbook
+    // Master creates a new recipe and sends it to Alice cookbook
     await cookBookInstance
         .connect(MASTER)
         .addAssetEntry(     // adds a new asset to the collection (not bound to any token)
