@@ -15,11 +15,11 @@ Multi-Asset (MA) is a Solidity smart contract implementation by [RMRK Team](http
 
 To better understand the different use cases of this standard we will transform them in situation where dynamics are clear because we are already familiar with them, but every action will be performed with smart contract functions with the help of some Typescript code :muscle:
 
-_We have 2 expert cookers, **Master** and his student **Alice**, that are travelling the world with the aim of create new innovative recipes. Both want to create a cookbook with the best exclusive contents and be remembered as great cooker in the kitchen history._
+_We have 2 expert cooks, **Master** and his student **Alice**, that are travelling the world with the aim of create new innovative recipes. Both want to create a cookbook with the best exclusive contents and be remembered as great cooks in the kitchen history._
 
 ## Cookbook crafting - Creation of an NFT collection with Multi-Asset support
 
-After the travel started Master and Alice decided to separate and they taken 2 different ways. Master **crafted** his cookbook in Japan, ancient place rich of tradition and history.
+After starting their travels, Master and Alice decided to separate and they had taken two separate different paths. Master **crafted** his cookbook in Japan, ancient place rich with tradition and history.
 
 ```typescript
 // Mint cookbook (token)
@@ -48,7 +48,7 @@ const INITIAL_RECIPES = 3;
     await Promise.all(allAddingTxs.map((addingTx) => addingTx.wait()));
 ```
 
-The recipes were not good enough, so, after a perfectioning period and some adjustments Master **added** them to his cookbook.
+The recipes were not good enough, so, after a period of perfecting and adjusting, Master **added** them to his cookbook.
 
 ```typescript
 console.log("Adding recipes to Master's book");
@@ -63,8 +63,8 @@ console.log("Adding recipes to Master's book");
     }
 ```
 
-Alice also wanted to craft her cookbook, but creating recognized recipes is not allowed to everyone, is something exclusive. So she asked to Master to give her the permission to contribute to this huge project and... he said **YES** :boom:
-Adding Alice as a new contributor for the collection she can now insert in her cookbook existing recipes made by her or her master.
+Alice also wanted to craft her cookbook, but creating recognisable recipes is not allowed to everyone, is something exclusive. So she asked Master to give her the permission to contribute to this huge project and... he said **YES** :boom:
+Adding Alice as a new contributor for the collection, so she can now insert her existing recipes to the cookbook.
 
 ```typescript
 console.log("Adding Alice as a new collection contributor.");
@@ -105,11 +105,11 @@ const INITIAL_ALICE_RECIPES = 2;
     }
 ```
 
-## recipe improvement - Asset replacement
+## Recipe improvement - Asset replacement
 
-During his travel Master created a recipe dedicated to his student and he decided to **send** it to Alice, to add it to her cookbook.
+During his travel, Master created a recipe dedicated to his student and he decided to **send** it to Alice, to add it to her cookbook.
 
-```Typescript
+```typescript
 // Master creates a new recipe and Alice adds it to her cookbook
     await cookBookInstance
         .connect(MASTER)
@@ -120,7 +120,7 @@ During his travel Master created a recipe dedicated to his student and he decide
 
 Alice **accepted** the recipe gifted from her master...
 
-```Typescript
+```typescript
 await cookBookInstance.connect(ALICE).
         addAssetToToken(
             ALICE_BOOK_ID,      // ID of the token that will receive the asset
@@ -131,10 +131,10 @@ await cookBookInstance.connect(ALICE).
 ```
 
 ...but she discovered that the recipe was missing something. :confused:
-After a long searching process and many attempts she found the right missing ingredient.
-So Alice fixed the recipe and she replaced the old one with this new improved one. :pencil:
+After a long search and many attempts she found the right missing ingredient.
+So Alice fixed the recipe and she replaced the old one with this new, improved one. :pencil:
 
-```Typescript
+```typescript
 // Alice creates a recipe and replaces the latest added with it
     await cookBookInstance
         .connect(ALICE)
@@ -154,9 +154,9 @@ So Alice fixed the recipe and she replaced the old one with this new improved on
     actual_recipe_id++;    // Update to the next ID
 ```
 
-After this fix Alice's career took flight and Master, proud of his student, proposed her to create 2 recipes as a collaboration to add her cookbook. 
+After this fix, Alice's career took flight and Master, proud of his student, proposed to create 2 recipes as a collaboration to add her cookbook. 
 
-```Typescript
+```typescript
 // Master creates 2 recipes and add them to Alice cookbook
     for (let i = 0; i < 2; i++) {
         await cookBookInstance
@@ -175,7 +175,7 @@ After this fix Alice's career took flight and Master, proud of his student, prop
 
 After a small review Alice added them to her book. :book:
 
-```Typescript
+```typescript
 // Alice accepts recipes
     for (let i = 0; i < 2; i++) {
         const CURRENT_recipe_ID = actual_recipe_id - 2 + i;
@@ -190,10 +190,10 @@ After a small review Alice added them to her book. :book:
     }
 ```
 
-## Master retires and burn his cookbook - Token burning with related assets
+## Master retires and burns his cookbook - Token burning with related assets
 
-When the collaboration ended, Master decided to retire. He was an old man and he was also a little tired of travelling the world. This final decision took him to burn his cookbook. :fire:
-He wanted to leave only a nice memory of him, and a veil of mystery around his cooking figure :wave:
+When the collaboration ended, Master decided to retire. He was an old man and he was also tired of travelling the world. This final decision resulted in him burning his cookbook. :fire:
+His only wish was to leave a nice memory and a veil of mystery of his cooking prowess :wave:
 
 Fortunately Master's recipes will be available for the next generations, but without the permission of Alice, his loyal student, none will be able to add the recipes into future cookbooks.
 
@@ -214,9 +214,9 @@ In this tutorial we have seen how to interact with the Multi-Asset implementatio
 
 ## Development notes :warning:
 
-- When you add a new entry to the collection you are creating a new asset (resource) that can be used by adding it to the collection tokens, but this asset is not *unique* so it can be added to each different token.
-- In this implementation the assets cannot be unbound from a token. Once you add the asset with ID 5 to the token with ID 1 there is no way to remove it, so keep attention while accepting new asset from unknown origins.
-On the other hand an asset can be "*deleted*" by replacing it with a new one, but the number of active assets will remain the same.
+- When you add a new entry to the collection you are creating a new asset (resource) that can be used by adding it to the collection tokens, but this asset is not *unique* so it can be added to multiple different tokens.
+- In this implementation, the assets cannot be unbound from a token. Once you add the asset with ID 5 to the token with ID 1 there is no way to remove it, so be careful when accepting new assets from unknown origins.
+On the other hand, an asset can be "*deleted*" by replacing it with a new one, this will keep the number of active assets the same.
 
 ## Bugs, doubts and help :pray:
 
