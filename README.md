@@ -29,6 +29,9 @@ After starting their travels, Master and Alice decided to separate and they had 
         { value: pricePerMint } // price per token
     );
 ```
+
+![alt text](images/MA_1.png)
+
 ## Recipes creation - Creation of assets to add to the collection tokens
 
 During his stay Master studied a lot and after getting the inspiration he **gave life** to 3 raw recipes.
@@ -47,6 +50,8 @@ const INITIAL_RECIPES = 3;
     }
     await Promise.all(allAddingTxs.map((addingTx) => addingTx.wait()));
 ```
+
+![alt text](images/MA_2.png)
 
 The recipes were not good enough, so, after a period of perfecting and adjusting, Master **added** them to his cookbook.
 
@@ -83,6 +88,8 @@ After getting the permission Alice crafted her book, but she did it in Argentina
     );
 ```
 
+![alt text](images/MA_4.png)
+
 She was inspired by different tastes and she created 2 recipes adding them **directly** to her cookbook.
 
 ```typescript
@@ -105,6 +112,8 @@ const INITIAL_ALICE_RECIPES = 2;
     }
 ```
 
+![alt text](images/MA_5.png)
+
 ## Recipe improvement - Asset replacement
 
 During his travel, Master created a recipe dedicated to his student and he decided to **send** it to Alice, to add it to her cookbook.
@@ -118,6 +127,8 @@ During his travel, Master created a recipe dedicated to his student and he decid
         );
 ```
 
+![alt text](images/MA_6.png)
+
 Alice **accepted** the recipe gifted from her master...
 
 ```typescript
@@ -129,6 +140,8 @@ await cookBookInstance.connect(ALICE).
         );
     actual_recipe_id++;    // Update to the next ID
 ```
+
+![alt text](images/MA_7.png)
 
 ...but she discovered that the recipe was missing something. :confused:
 After a long search and many attempts she found the right missing ingredient.
@@ -154,6 +167,8 @@ So Alice fixed the recipe and she replaced the old one with this new, improved o
     actual_recipe_id++;    // Update to the next ID
 ```
 
+![alt text](images/MA_8.png)
+
 After this fix, Alice's career took flight and Master, proud of his student, proposed to create 2 recipes as a collaboration to add her cookbook. 
 
 ```typescript
@@ -173,6 +188,8 @@ After this fix, Alice's career took flight and Master, proud of his student, pro
     }
 ```
 
+![alt text](images/MA_9.png)
+
 After a small review Alice added them to her book. :book:
 
 ```typescript
@@ -190,6 +207,8 @@ After a small review Alice added them to her book. :book:
     }
 ```
 
+![alt text](images/MA_10.png)
+
 ## Master retires and burns his cookbook - Token burning with related assets
 
 When the collaboration ended, Master decided to retire. He was an old man and he was also tired of travelling the world. This final decision resulted in him burning his cookbook. :fire:
@@ -202,6 +221,8 @@ await cookBookInstance.connect(MASTER).
         burn(MASTER_BOOK_ID // ID of the token to burn
         );
 ```
+
+![alt text](images/MA_11.png)
 
 ## User journey summary 
 
