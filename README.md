@@ -31,8 +31,8 @@ After starting their travels, Master and Alice decided to separate and they had 
 ```
 
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="images/light_theme/MA_1.png">
-    <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_2.png">
+    <source media="(prefers-color-scheme: dark)" srcset="images/dark_theme/MA_1.png">
+    <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_1.png">
 </picture>
 
 ## Recipes creation - Creation of assets to add to the collection tokens
