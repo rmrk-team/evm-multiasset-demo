@@ -30,7 +30,10 @@ After starting their travels, Master and Alice decided to separate and they had 
     );
 ```
 
-![alt text](images/MA_1.png)
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="images/light_theme/MA_1.png">
+    <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_2.png">
+</picture>
 
 ## Recipes creation - Creation of assets to add to the collection tokens
 
@@ -51,7 +54,7 @@ const INITIAL_RECIPES = 3;
     await Promise.all(allAddingTxs.map((addingTx) => addingTx.wait()));
 ```
 
-![alt text](images/MA_2.png)
+![alt text](images/light_theme/MA_2.png)
 
 The recipes were not good enough, so, after a period of perfecting and adjusting, Master **added** them to his cookbook.
 
@@ -88,7 +91,7 @@ After getting the permission Alice crafted her book, but she did it in Argentina
     );
 ```
 
-![alt text](images/MA_4.png)
+![alt text](images/light_theme/MA_4.png)
 
 She was inspired by different tastes and she created 2 recipes adding them **directly** to her cookbook.
 
@@ -112,7 +115,7 @@ const INITIAL_ALICE_RECIPES = 2;
     }
 ```
 
-![alt text](images/MA_5.png)
+![alt text](images/light_theme/MA_5.png)
 
 ## Recipe improvement - Asset replacement
 
@@ -127,7 +130,7 @@ During his travel, Master created a recipe dedicated to his student and he decid
         );
 ```
 
-![alt text](images/MA_6.png)
+![alt text](images/light_theme/MA_6.png)
 
 Alice **accepted** the recipe gifted from her master...
 
@@ -141,7 +144,7 @@ await cookBookInstance.connect(ALICE).
     actual_recipe_id++;    // Update to the next ID
 ```
 
-![alt text](images/MA_7.png)
+![alt text](images/light_theme/MA_7.png)
 
 ...but she discovered that the recipe was missing something. :confused:
 After a long search and many attempts she found the right missing ingredient.
@@ -167,7 +170,7 @@ So Alice fixed the recipe and she replaced the old one with this new, improved o
     actual_recipe_id++;    // Update to the next ID
 ```
 
-![alt text](images/MA_8.png)
+![alt text](images/light_theme/MA_8.png)
 
 After this fix, Alice's career took flight and Master, proud of his student, proposed to create 2 recipes as a collaboration to add her cookbook. 
 
@@ -188,7 +191,7 @@ After this fix, Alice's career took flight and Master, proud of his student, pro
     }
 ```
 
-![alt text](images/MA_9.png)
+![alt text](images/light_theme/MA_9.png)
 
 After a small review Alice added them to her book. :book:
 
@@ -207,7 +210,7 @@ After a small review Alice added them to her book. :book:
     }
 ```
 
-![alt text](images/MA_10.png)
+![alt text](images/light_theme/MA_10.png)
 
 ## Master retires and burns his cookbook - Token burning with related assets
 
@@ -222,7 +225,7 @@ await cookBookInstance.connect(MASTER).
         );
 ```
 
-![alt text](images/MA_11.png)
+![alt text](images/light_theme/MA_11.png)
 
 ## User journey summary 
 
