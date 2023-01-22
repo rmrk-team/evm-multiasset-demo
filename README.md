@@ -180,7 +180,8 @@ So Alice fixed the recipe and she replaced the old one with this new, improved o
 After this fix, Alice's career took flight and Master, proud of his student, proposed to create 2 recipes as a collaboration to add her cookbook. 
 
 ```typescript
-// Master creates 2 recipes and add them to Alice cookbook
+// Master creates 2 recipes and add them to Alice cookbook and also the first one to his cookbook
+    await cookBookInstance
     for (let i = 0; i < 2; i++) {
         await cookBookInstance
             .connect(MASTER)
@@ -218,6 +219,21 @@ After a small review Alice added them to her book. :book:
 
 ![alt text](images/dark_theme/MA_10.png#gh-dark-mode-only)
 ![alt text](images/light_theme/MA_10.png#gh-light-mode-only)
+
+The last recipe was so delicious that Master added it to his cookbook also!
+
+```typescript
+    const LAST_RECIPE_ID = actual_recipe_id - 1;
+    await cookBookInstance
+        .connect(MASTER)
+        .addAssetToToken(
+            MASTER_BOOK_ID,     // ID of the token that will receive the asset
+            LAST_RECIPE_ID,     // ID of the asset to add
+            0                   // ID of the asset to replace with the new one, 0 means none
+        );
+```
+![alt text](images/dark_theme/MA_12.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_12.png#gh-light-mode-only)
 
 ## Master retires and burns his cookbook - Token burning with related assets
 
