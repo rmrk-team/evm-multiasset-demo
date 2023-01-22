@@ -30,10 +30,9 @@ After starting their travels, Master and Alice decided to separate and they had 
     );
 ```
 
-<picture>
-    <source media="(prefers-color-scheme: dark)" srcset="images/dark_theme/MA_1.png">
-    <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_1.png">
-</picture>
+![alt text](images/dark_theme/MA_1.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_1.png#gh-light-mode-only)
+
 
 ## Recipes creation - Creation of assets to add to the collection tokens
 
