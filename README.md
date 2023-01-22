@@ -53,7 +53,8 @@ const INITIAL_RECIPES = 3;
     await Promise.all(allAddingTxs.map((addingTx) => addingTx.wait()));
 ```
 
-![alt text](images/light_theme/MA_2.png)
+![alt text](images/dark_theme/MA_2.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_2.png#gh-light-mode-only)
 
 The recipes were not good enough, so, after a period of perfecting and adjusting, Master **added** them to his cookbook.
 
@@ -90,7 +91,8 @@ After getting the permission Alice crafted her book, but she did it in Argentina
     );
 ```
 
-![alt text](images/light_theme/MA_4.png)
+![alt text](images/dark_theme/MA_3.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_3.png#gh-light-mode-only)
 
 She was inspired by different tastes and she created 2 recipes adding them **directly** to her cookbook.
 
@@ -114,7 +116,8 @@ const INITIAL_ALICE_RECIPES = 2;
     }
 ```
 
-![alt text](images/light_theme/MA_5.png)
+![alt text](images/dark_theme/MA_4.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_4.png#gh-light-mode-only)
 
 ## Recipe improvement - Asset replacement
 
@@ -129,7 +132,8 @@ During his travel, Master created a recipe dedicated to his student and he decid
         );
 ```
 
-![alt text](images/light_theme/MA_6.png)
+![alt text](images/dark_theme/MA_5.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_5.png#gh-light-mode-only)
 
 Alice **accepted** the recipe gifted from her master...
 
