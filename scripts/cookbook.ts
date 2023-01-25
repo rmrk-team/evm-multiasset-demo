@@ -157,7 +157,7 @@ async function main() {
         await cookBookInstance.getActiveAssets(ALICE_BOOK_ID),
     );
 
-    // Master creates 2 recipes and adds them to Alice cookbook
+    // Master creates 2 recipes and add them to Alice cookbook
     for (let i = 0; i < 2; i++) {
         await cookBookInstance
             .connect(MASTER)
@@ -171,6 +171,18 @@ async function main() {
         );
         actual_recipe_id++;
     }
+
+    // Master decides to add the last recipe also to his coobook
+    const LAST_RECIPE_ID = actual_recipe_id - 1;
+    await cookBookInstance
+        .connect(MASTER)
+        .addAssetToToken(
+            MASTER_BOOK_ID,     // ID of the token that will receive the asset
+            LAST_RECIPE_ID,     // ID of the asset to add
+            0                   // ID of the asset to replace with the new one, 0 means none
+        );
+
+    console.log("Current Master cookbook recipes: %s", await cookBookInstance.getActiveAssets(MASTER_BOOK_ID));
 
     // Alice accepts recipes
     for (let i = 0; i < 2; i++) {
@@ -189,6 +201,8 @@ async function main() {
         'Alice cookbook after accepting the new recipes: %s',
         await cookBookInstance.getActiveAssets(ALICE_BOOK_ID),
     );
+
+    // Currently both Alice and Master cookbooks own the recipe with assetId = 9
 
     // Master burns his cookbook
     console.log(

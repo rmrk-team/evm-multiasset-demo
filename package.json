@@ -5,6 +5,7 @@
     "hardhat": "^2.12.2"
   },
   "scripts": {
+    "cookBookUserJourney": "npx hardhat run .\\scripts\\cookbook.ts",
     "prettier": "prettier --write ."
   },
   "dependencies": {

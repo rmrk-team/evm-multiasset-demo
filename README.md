@@ -30,7 +30,12 @@ After starting their travels, Master and Alice decided to separate and they had 
     );
 ```
 
-![alt text](images/MA_1.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="images/dark_theme/MA_1.png">
+  <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_1.png">
+  <img alt="Alternative text." src="images/light_theme/MA_1.png">
+</picture>
+
 
 ## Recipes creation - Creation of assets to add to the collection tokens
 
@@ -51,7 +56,8 @@ const INITIAL_RECIPES = 3;
     await Promise.all(allAddingTxs.map((addingTx) => addingTx.wait()));
 ```
 
-![alt text](images/MA_2.png)
+![alt text](images/dark_theme/MA_2.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_2.png#gh-light-mode-only)
 
 The recipes were not good enough, so, after a period of perfecting and adjusting, Master **added** them to his cookbook.
 
@@ -88,7 +94,8 @@ After getting the permission Alice crafted her book, but she did it in Argentina
     );
 ```
 
-![alt text](images/MA_4.png)
+![alt text](images/dark_theme/MA_4.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_4.png#gh-light-mode-only)
 
 She was inspired by different tastes and she created 2 recipes adding them **directly** to her cookbook.
 
@@ -112,7 +119,8 @@ const INITIAL_ALICE_RECIPES = 2;
     }
 ```
 
-![alt text](images/MA_5.png)
+![alt text](images/dark_theme/MA_5.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_5.png#gh-light-mode-only)
 
 ## Recipe improvement - Asset replacement
 
@@ -127,7 +135,8 @@ During his travel, Master created a recipe dedicated to his student and he decid
         );
 ```
 
-![alt text](images/MA_6.png)
+![alt text](images/dark_theme/MA_6.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_6.png#gh-light-mode-only)
 
 Alice **accepted** the recipe gifted from her master...
 
@@ -141,7 +150,8 @@ await cookBookInstance.connect(ALICE).
     actual_recipe_id++;    // Update to the next ID
 ```
 
-![alt text](images/MA_7.png)
+![alt text](images/dark_theme/MA_7.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_7.png#gh-light-mode-only)
 
 ...but she discovered that the recipe was missing something. :confused:
 After a long search and many attempts she found the right missing ingredient.
@@ -167,12 +177,14 @@ So Alice fixed the recipe and she replaced the old one with this new, improved o
     actual_recipe_id++;    // Update to the next ID
 ```
 
-![alt text](images/MA_8.png)
+![alt text](images/dark_theme/MA_8.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_8.png#gh-light-mode-only)
 
 After this fix, Alice's career took flight and Master, proud of his student, proposed to create 2 recipes as a collaboration to add her cookbook. 
 
 ```typescript
-// Master creates 2 recipes and add them to Alice cookbook
+// Master creates 2 recipes and add them to Alice cookbook and also the first one to his cookbook
+    await cookBookInstance
     for (let i = 0; i < 2; i++) {
         await cookBookInstance
             .connect(MASTER)
@@ -188,7 +200,8 @@ After this fix, Alice's career took flight and Master, proud of his student, pro
     }
 ```
 
-![alt text](images/MA_9.png)
+![alt text](images/dark_theme/MA_9.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_9.png#gh-light-mode-only)
 
 After a small review Alice added them to her book. :book:
 
@@ -207,7 +220,23 @@ After a small review Alice added them to her book. :book:
     }
 ```
 
-![alt text](images/MA_10.png)
+![alt text](images/dark_theme/MA_10.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_10.png#gh-light-mode-only)
+
+The last recipe was so delicious that Master added it to his cookbook as well!
+
+```typescript
+    const LAST_RECIPE_ID = actual_recipe_id - 1;
+    await cookBookInstance
+        .connect(MASTER)
+        .addAssetToToken(
+            MASTER_BOOK_ID,     // ID of the token that will receive the asset
+            LAST_RECIPE_ID,     // ID of the asset to add
+            0                   // ID of the asset to replace with the new one, 0 means none
+        );
+```
+![alt text](images/dark_theme/MA_12.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_12.png#gh-light-mode-only)
 
 ## Master retires and burns his cookbook - Token burning with related assets
 
@@ -222,7 +251,8 @@ await cookBookInstance.connect(MASTER).
         );
 ```
 
-![alt text](images/MA_11.png)
+![alt text](images/dark_theme/MA_11.png#gh-dark-mode-only)
+![alt text](images/light_theme/MA_11.png#gh-light-mode-only)
 
 ## User journey summary 
 
