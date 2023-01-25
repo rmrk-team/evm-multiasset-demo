@@ -56,8 +56,11 @@ const INITIAL_RECIPES = 3;
     await Promise.all(allAddingTxs.map((addingTx) => addingTx.wait()));
 ```
 
-![alt text](images/dark_theme/MA_2.png#gh-dark-mode-only)
-![alt text](images/light_theme/MA_2.png#gh-light-mode-only)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="images/dark_theme/MA_2.png">
+  <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_2.png">
+  <img alt="Alternative text." src="images/light_theme/MA_2.png">
+</picture>
 
 The recipes were not good enough, so, after a period of perfecting and adjusting, Master **added** them to his cookbook.
 
@@ -94,8 +97,11 @@ After getting the permission Alice crafted her book, but she did it in Argentina
     );
 ```
 
-![alt text](images/dark_theme/MA_4.png#gh-dark-mode-only)
-![alt text](images/light_theme/MA_4.png#gh-light-mode-only)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="images/dark_theme/MA_4.png">
+  <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_4.png">
+  <img alt="Alternative text." src="images/light_theme/MA_4.png">
+</picture>
 
 She was inspired by different tastes and she created 2 recipes adding them **directly** to her cookbook.
 
@@ -119,8 +125,11 @@ const INITIAL_ALICE_RECIPES = 2;
     }
 ```
 
-![alt text](images/dark_theme/MA_5.png#gh-dark-mode-only)
-![alt text](images/light_theme/MA_5.png#gh-light-mode-only)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="images/dark_theme/MA_5.png">
+  <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_5.png">
+  <img alt="Alternative text." src="images/light_theme/MA_5.png">
+</picture>
 
 ## Recipe improvement - Asset replacement
 
@@ -135,8 +144,11 @@ During his travel, Master created a recipe dedicated to his student and he decid
         );
 ```
 
-![alt text](images/dark_theme/MA_6.png#gh-dark-mode-only)
-![alt text](images/light_theme/MA_6.png#gh-light-mode-only)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="images/dark_theme/MA_6.png">
+  <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_6.png">
+  <img alt="Alternative text." src="images/light_theme/MA_6.png">
+</picture>
 
 Alice **accepted** the recipe gifted from her master...
 
@@ -150,8 +162,11 @@ await cookBookInstance.connect(ALICE).
     actual_recipe_id++;    // Update to the next ID
 ```
 
-![alt text](images/dark_theme/MA_7.png#gh-dark-mode-only)
-![alt text](images/light_theme/MA_7.png#gh-light-mode-only)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="images/dark_theme/MA_7.png">
+  <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_7.png">
+  <img alt="Alternative text." src="images/light_theme/MA_7.png">
+</picture>
 
 ...but she discovered that the recipe was missing something. :confused:
 After a long search and many attempts she found the right missing ingredient.
@@ -177,8 +192,11 @@ So Alice fixed the recipe and she replaced the old one with this new, improved o
     actual_recipe_id++;    // Update to the next ID
 ```
 
-![alt text](images/dark_theme/MA_8.png#gh-dark-mode-only)
-![alt text](images/light_theme/MA_8.png#gh-light-mode-only)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="images/dark_theme/MA_8.png">
+  <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_8.png">
+  <img alt="Alternative text." src="images/light_theme/MA_8.png">
+</picture>
 
 After this fix, Alice's career took flight and Master, proud of his student, proposed to create 2 recipes as a collaboration to add her cookbook. 
 
@@ -200,8 +218,11 @@ After this fix, Alice's career took flight and Master, proud of his student, pro
     }
 ```
 
-![alt text](images/dark_theme/MA_9.png#gh-dark-mode-only)
-![alt text](images/light_theme/MA_9.png#gh-light-mode-only)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="images/dark_theme/MA_9.png">
+  <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_9.png">
+  <img alt="Alternative text." src="images/light_theme/MA_9.png">
+</picture>
 
 After a small review Alice added them to her book. :book:
 
@@ -220,8 +241,11 @@ After a small review Alice added them to her book. :book:
     }
 ```
 
-![alt text](images/dark_theme/MA_10.png#gh-dark-mode-only)
-![alt text](images/light_theme/MA_10.png#gh-light-mode-only)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="images/dark_theme/MA_10.png">
+  <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_10.png">
+  <img alt="Alternative text." src="images/light_theme/MA_10.png">
+</picture>
 
 The last recipe was so delicious that Master added it to his cookbook as well!
 
@@ -235,8 +259,12 @@ The last recipe was so delicious that Master added it to his cookbook as well!
             0                   // ID of the asset to replace with the new one, 0 means none
         );
 ```
-![alt text](images/dark_theme/MA_12.png#gh-dark-mode-only)
-![alt text](images/light_theme/MA_12.png#gh-light-mode-only)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="images/dark_theme/MA_12.png">
+  <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_12.png">
+  <img alt="Alternative text." src="images/light_theme/MA_12.png">
+</picture>
 
 ## Master retires and burns his cookbook - Token burning with related assets
 
@@ -251,8 +279,11 @@ await cookBookInstance.connect(MASTER).
         );
 ```
 
-![alt text](images/dark_theme/MA_11.png#gh-dark-mode-only)
-![alt text](images/light_theme/MA_11.png#gh-light-mode-only)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="images/dark_theme/MA_11.png">
+  <source media="(prefers-color-scheme: light)" srcset="images/light_theme/MA_11.png">
+  <img alt="Alternative text." src="images/light_theme/MA_11.png">
+</picture>
 
 ## User journey summary 
 
