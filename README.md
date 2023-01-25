@@ -220,7 +220,7 @@ After a small review Alice added them to her book. :book:
 ![alt text](images/dark_theme/MA_10.png#gh-dark-mode-only)
 ![alt text](images/light_theme/MA_10.png#gh-light-mode-only)
 
-The last recipe was so delicious that Master added it to his cookbook also!
+The last recipe was so delicious that Master added it to his cookbook as well!
 
 ```typescript
     const LAST_RECIPE_ID = actual_recipe_id - 1;
